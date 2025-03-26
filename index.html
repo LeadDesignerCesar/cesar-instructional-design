@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cesar Ramos | Instructional Design Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary-color: #1b1b1b;
+      --accent-color: #8b0000;
+      --text-color: #f0f0f0;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      background: var(--primary-color) url('https://i.imgur.com/KScEtFV.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .mist {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: url('https://i.imgur.com/BlCJGgB.png') repeat;
+      opacity: 0.04;
+      animation: floatMist 60s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatMist {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(-50%, -25%);
+      }
+    }
+
+    .overlay-content {
+      background: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      background-color: #1b1b1b;
+      color: white;
+      width: 60px;
+      position: fixed;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      padding-top: 4rem;
+      transition: width 0.3s ease-in-out;
+      z-index: 1;
+      overflow-x: hidden;
+    }
+
+    .sidebar:hover {
+      width: 250px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .sidebar ul li i {
+      margin-right: 1rem;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .sidebar:hover ul li a {
+      opacity: 1;
+    }
+
+    main {
+      margin-left: 60px;
+      padding: 2rem;
+      flex-grow: 1;
+      transition: margin-left 0.3s ease-in-out;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sidebar:hover ~ main {
+      margin-left: 250px;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      background: rgba(139, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .hero img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      max-width: 1000px;
+    }
+
+    h1, h2 {
+      color: var(--accent-color);
+    }
+
+    .project-card {
+      background: rgba(26, 26, 26, 0.6);
+      backdrop-filter: blur(8px);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      color: #bbb;
+      padding: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="mist"></div>
+  <div class="overlay-content">
+    <nav class="sidebar">
+      <ul>
+        <li><i class="fas fa-user"></i><a href="#about">About</a></li>
+        <li><i class="fas fa-briefcase"></i><a href="#portfolio">Portfolio</a></li>
+        <li><i class="fas fa-envelope"></i><a href="#contact">Contact</a></li>
+        <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/cesarthedesigner/" target="_blank">LinkedIn</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hero" id="about">
+        <img src="https://drive.google.com/thumbnail?id=18J02sUx7YOHDf5OJX1c9n1mvPjtkLwxr" alt="Cesar Ramos headshot" />
+        <div>
+          <h1>Cesar Ramos</h1>
+          <p>Instructional Designer | eLearning Developer | Learning Strategist</p>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="project-card">
+          <h3>Meet Cesar – Animated Introduction</h3>
+          <p>This short Powtoons video is a quick, fun introduction to who I am and what I do. It’s a great first step into my world of instructional design.</p>
+          <iframe src="https://www.youtube.com/embed/66fxzbOiLp0" title="Cesar Animated Intro"></iframe>
+        </div>
+
+        <div class="project-card">
+          <h3>Heat Quest – Course Trailer</h3>
+          <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
+          <iframe src="https://www.youtube.com/embed/y64BRSX12MM" title="Heat Quest Trailer"></iframe>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Want to work together? <a href="mailto:cesarthedesigner@email.com" class="btn">Email Me</a></p>
+      </section>
+
+      <footer>
+        <p>© 2025 Cesar Ramos. All rights reserved.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
