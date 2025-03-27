@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,6 +118,21 @@
       object-fit: cover;
     }
 
+    .about-blurb {
+      background: var(--glass-color);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 15px;
+      border: 1px solid var(--accent-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-blurb p + p {
+      margin-top: 1.2rem;
+    }
+
     .project-card {
       background: var(--glass-color);
       backdrop-filter: blur(8px);
@@ -192,12 +208,21 @@
   </nav>
 
   <main>
-    <section class="hero project-card" id="about">
+    <section class="hero" id="about">
       <img src="https://drive.google.com/thumbnail?id=18J02sUx7YOHDf5OJX1c9n1mvPjtkLwxr" alt="Cesar Ramos headshot">
       <div>
         <h1>Cesar Ramos</h1>
         <p>Instructional Designer | eLearning Developer | Learning Strategist</p>
       </div>
+    </section>
+
+    <h2 style="margin: 2rem 0;">About Me</h2>
+    <section class="about-blurb">
+      <p>I currently lead curriculum development at Deployed Services, managing and mentoring a talented team of designers. In this role, I oversee the creation of impactful, scalable learning experiences for a diverse audience.</p>
+      <p>My instructional design journey began at Carley Corporation, where I worked on high-stakes government contracts. That early exposure taught me the discipline and attention to detail required to build content that performs under pressure.</p>
+      <p>Before entering the corporate space, I spent eight years in the classroom. In 2020, I began mentoring veteran teachers through the sudden shift to hybrid learning. Supporting others during that pivotal moment sparked a realization—I wanted to design learning experiences full time.</p>
+      <p>I earned my Master’s in Instructional Design & Technology from the American College of Education, graduating as a distinguished student.</p>
+      <p>Since then, I’ve continued to build expertise through certifications in Articulate Storyline and Rise, onboarding design, and AI-assisted content creation. I also hold Lean Six Sigma White Belt and Six Sigma White Belt certifications.</p>
     </section>
 
     <section id="portfolio" style="margin: 3rem 0;">
