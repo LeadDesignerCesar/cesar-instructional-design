@@ -1,16 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cesar Ramos | Instructional Design Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <style>
     :root {
-      --primary-color: #1b1b1b;
-      --accent-color: #8b0000;
-      --text-color: #f0f0f0;
+      --primary-color: #25241d;
+      --accent-color: #3b82f6;
+      --background-color: #ded0ad;
+      --glass-color: rgba(255, 255, 255, 0.1);
+      --text-color: #1a1a1a;
       --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
@@ -22,44 +23,14 @@
 
     body {
       font-family: var(--font);
+      background: var(--background-color);
       color: var(--text-color);
-      min-height: 100vh;
-      display: flex;
-      background: var(--primary-color) url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-
-    .mist {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: url('background.jpg') repeat;
-      opacity: 0.04;
-      animation: floatMist 60s linear infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    @keyframes floatMist {
-      0% {
-        transform: translate(0, 0);
-      }
-      100% {
-        transform: translate(-50%, -25%);
-      }
-    }
-
-    .overlay-content {
-      background: rgba(0, 0, 0, 0.6);
-      width: 100%;
       min-height: 100vh;
       display: flex;
     }
 
     .sidebar {
-      background-color: #1b1b1b;
+      background-color: var(--primary-color);
       color: white;
       width: 60px;
       position: fixed;
@@ -68,7 +39,7 @@
       left: 0;
       padding-top: 4rem;
       transition: width 0.3s ease-in-out;
-      z-index: 1;
+      z-index: 1000;
       overflow-x: hidden;
     }
 
@@ -82,7 +53,7 @@
     }
 
     .sidebar ul li {
-      padding: 1rem;
+      padding: 1rem 1rem;
       display: flex;
       align-items: center;
       white-space: nowrap;
@@ -106,13 +77,20 @@
       opacity: 1;
     }
 
+    .submenu {
+      margin-left: 2rem;
+      display: none;
+    }
+
+    .sidebar:hover .submenu {
+      display: block;
+    }
+
     main {
       margin-left: 60px;
       padding: 2rem;
       flex-grow: 1;
       transition: margin-left 0.3s ease-in-out;
-      position: relative;
-      z-index: 1;
     }
 
     .sidebar:hover ~ main {
@@ -120,13 +98,15 @@
     }
 
     .hero {
+      background: var(--glass-color);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
       display: flex;
       align-items: center;
-      gap: 2rem;
-      background: rgba(139, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
-      padding: 2rem;
-      border-radius: 10px;
+      gap: 1rem;
     }
 
     .hero img {
@@ -136,21 +116,14 @@
       object-fit: cover;
     }
 
-    section {
-      margin-bottom: 3rem;
-      max-width: 1000px;
-    }
-
-    h1, h2 {
-      color: var(--accent-color);
-    }
-
     .project-card {
-      background: rgba(26, 26, 26, 0.6);
+      background: var(--glass-color);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 15px;
+      border: 1px solid var(--accent-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
       margin-bottom: 2rem;
     }
 
@@ -161,68 +134,110 @@
       margin-top: 1rem;
     }
 
+    h1, h2, h3 {
+      color: var(--text-color);
+    }
+
     .btn {
-      display: inline-block;
-      margin-top: 1rem;
       background: var(--primary-color);
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
       text-decoration: none;
     }
 
     footer {
       text-align: center;
-      color: #bbb;
-      padding: 2rem 0;
+      margin-top: 4rem;
+      color: var(--text-color);
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 0;
+      }
+
+      .sidebar:hover {
+        width: 250px;
+      }
+
+      main {
+        margin-left: 0;
+      }
+
+      .sidebar:hover ~ main {
+        margin-left: 250px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="mist"></div>
-  <div class="overlay-content">
-    <nav class="sidebar">
-      <ul>
-        <li><i class="fas fa-user"></i><a href="#about">About</a></li>
-        <li><i class="fas fa-briefcase"></i><a href="#portfolio">Portfolio</a></li>
-        <li><i class="fas fa-envelope"></i><a href="#contact">Contact</a></li>
-        <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/cesarthedesigner/" target="_blank">LinkedIn</a></li>
-      </ul>
-    </nav>
-
-    <main>
-      <section class="hero" id="about">
-        <img src="https://drive.google.com/thumbnail?id=18J02sUx7YOHDf5OJX1c9n1mvPjtkLwxr" alt="Cesar Ramos headshot" />
-        <div>
-          <h1>Cesar Ramos</h1>
-          <p>Instructional Designer | eLearning Developer | Learning Strategist</p>
+  <nav class="sidebar">
+    <ul>
+      <li><i class="fas fa-user"></i><a href="#about">About</a></li>
+      <li><i class="fas fa-briefcase"></i><a href="#portfolio">Portfolio</a></li>
+        <div class="submenu">
+          <li><a href="#storyline">Storyline</a></li>
+          <li><a href="#canva">Canva</a></li>
+          <li><a href="#rise">Rise</a></li>
+          <li><a href="#easygen">EasyGen</a></li>
         </div>
-      </section>
+      <li><i class="fas fa-envelope"></i><a href="#contact">Contact</a></li>
+      <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/cesarthedesigner/" target="_blank">LinkedIn</a></li>
+    </ul>
+  </nav>
 
-      <section id="portfolio">
-        <h2>Portfolio</h2>
-        <div class="project-card">
-          <h3>Meet Cesar – Animated Introduction</h3>
-          <p>This short Powtoons video is a quick, fun introduction to who I am and what I do. It’s a great first step into my world of instructional design.</p>
-          <iframe src="https://www.youtube.com/embed/66fxzbOiLp0" title="Cesar Animated Intro"></iframe>
-        </div>
+  <main>
+    <section class="hero" id="about">
+      <img src="https://drive.google.com/thumbnail?id=18J02sUx7YOHDf5OJX1c9n1mvPjtkLwxr" alt="Cesar Ramos headshot">
+      <div>
+        <h1>Cesar Ramos</h1>
+        <p>Instructional Designer | eLearning Developer | Learning Strategist</p>
+      </div>
+    </section>
 
-        <div class="project-card">
-          <h3>Heat Quest – Course Trailer</h3>
-          <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
-          <iframe src="https://www.youtube.com/embed/y64BRSX12MM" title="Heat Quest Trailer"></iframe>
-        </div>
-      </section>
+    <section id="portfolio">
+      <h2>Portfolio</h2>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Want to work together? <a href="mailto:cesarthedesigner@email.com" class="btn">Email Me</a></p>
-      </section>
+      <div class="project-card" id="storyline">
+        <h3>Storyline Courses</h3>
+        <p>Courses built in Articulate Storyline for scenario-based learning and interactivity.</p>
+      </div>
 
-      <footer>
-        <p>© 2025 Cesar Ramos. All rights reserved.</p>
-      </footer>
-    </main>
-  </div>
+      <div class="project-card" id="canva">
+        <h3>Heat Quest – Course Trailer</h3>
+        <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
+        <iframe src="https://www.youtube.com/embed/y64BRSX12MM" title="Heat Quest Trailer"></iframe>
+      </div>
+
+      <div class="project-card">
+        <h3>Meet Cesar – Animated Introduction</h3>
+        <p>This short Powtoons video is a quick, fun introduction to who I am and what I do. It’s a great first step into my world of instructional design.</p>
+        <iframe src="https://www.youtube.com/embed/66fxzbOiLp0" title="Cesar Animated Intro"></iframe>
+      </div>
+
+      <div class="project-card" id="rise">
+        <h3>Rise Modules</h3>
+        <p>Responsive eLearning experiences built in Articulate Rise, ideal for mobile learning and structured content delivery.</p>
+      </div>
+
+      <div class="project-card" id="easygen">
+        <h3>EasyGen Courses</h3>
+        <p>AI-supported course designs created in EasyGen, leveraging automation to produce rapid training solutions.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Want to work together? <a class="btn" href="mailto:caramos0918@gmail.com">Email Me</a></p>
+    </section>
+
+    <footer>
+      <p>© 2025 Cesar Ramos. All rights reserved.</p>
+    </footer>
+  </main>
 </body>
 </html>
