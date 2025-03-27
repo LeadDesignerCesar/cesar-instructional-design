@@ -107,6 +107,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      border: 1px solid var(--accent-color);
     }
 
     .hero img {
@@ -180,8 +181,8 @@
       <li><i class="fas fa-user"></i><a href="#about">About</a></li>
       <li><i class="fas fa-briefcase"></i><a href="#portfolio">Portfolio</a></li>
         <div class="submenu">
-          <li><a href="#storyline">Storyline</a></li>
           <li><a href="#canva">Canva</a></li>
+          <li><a href="#storyline">Storyline</a></li>
           <li><a href="#rise">Rise</a></li>
           <li><a href="#easygen">EasyGen</a></li>
         </div>
@@ -191,7 +192,7 @@
   </nav>
 
   <main>
-    <section class="hero" id="about">
+    <section class="hero project-card" id="about">
       <img src="https://drive.google.com/thumbnail?id=18J02sUx7YOHDf5OJX1c9n1mvPjtkLwxr" alt="Cesar Ramos headshot">
       <div>
         <h1>Cesar Ramos</h1>
@@ -199,18 +200,21 @@
       </div>
     </section>
 
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-
-      <div class="project-card" id="storyline">
-        <h3>Storyline Courses</h3>
-        <p>Courses built in Articulate Storyline for scenario-based learning and interactivity.</p>
-      </div>
+    <section id="portfolio" style="margin: 3rem 0;">
+      <h2 style="margin: 2rem 0;">Portfolio</h2>
 
       <div class="project-card" id="canva">
         <h3>Heat Quest – Course Trailer</h3>
         <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
         <iframe src="https://www.youtube.com/embed/y64BRSX12MM" title="Heat Quest Trailer"></iframe>
+      </div>
+
+      <div class="project-card" id="storyline">
+        <h3>Storyline Courses</h3>
+        <p>Courses built in Articulate Storyline for scenario-based learning and interactivity.</p>
+        <a href="https://warehousetraining.netlify.app/" target="_blank">
+          <img src="warehousethumbnail.png" alt="Warehouse Course Thumbnail" style="max-width:100%; height:auto; margin-top: 1rem; border-radius: 10px;">
+        </a>
       </div>
 
       <div class="project-card">
