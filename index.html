@@ -242,6 +242,54 @@
         max-width: 100%;
       }
     }
+    /* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 75%;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  border: 3px solid var(--accent-color);
+  background: var(--glass-color);
+  backdrop-filter: blur(8px);
+}
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel figure {
+  margin: 0;
+  flex-shrink: 0;
+  width: 100%;
+}
+.carousel img {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+}
+.carousel figcaption {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 10;
+  border-radius: 50%;
+}
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
   </style>
   <script>
     function toggleAboutMe() {
@@ -291,7 +339,25 @@
 
     <section id="portfolio" style="margin: 3rem 0;">
       <h2 style="margin: 2rem 0;">Portfolio</h2>
-
+     
+      <div class="carousel-container">
+  <div class="carousel">
+    <figure>
+      <img src="yourimage1.jpg" loading="lazy" alt="Alt text 1">
+      <figcaption>Description 1</figcaption>
+    </figure>
+    <figure>
+      <img src="yourimage2.jpg" loading="lazy" alt="Alt text 2">
+      <figcaption>Description 2</figcaption>
+    </figure>
+    <figure>
+      <img src="yourimage3.jpg" loading="lazy" alt="Alt text 3">
+      <figcaption>Description 3</figcaption>
+    </figure>
+  </div>
+  <button class="prev-btn" aria-label="Previous slide">&#10094;</button>
+  <button class="next-btn" aria-label="Next slide">&#10095;</button>
+</div>
       <div class="project-card" id="canva">
         <h3>Heat Quest – Course Trailer</h3>
         <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
@@ -336,5 +402,24 @@
       <p>© 2025 Cesar Ramos. All rights reserved.</p>
     </footer>
   </main>
+  <div class="carousel-container">
+  <div class="carousel">
+    <figure>
+      <img src="yourimage1.jpg" loading="lazy" alt="Alt text 1">
+      <figcaption>Description 1</figcaption>
+    </figure>
+    <figure>
+      <img src="yourimage2.jpg" loading="lazy" alt="Alt text 2">
+      <figcaption>Description 2</figcaption>
+    </figure>
+    <figure>
+      <img src="yourimage3.jpg" loading="lazy" alt="Alt text 3">
+      <figcaption>Description 3</figcaption>
+    </figure>
+  </div>
+  <button class="prev-btn" aria-label="Previous slide">&#10094;</button>
+  <button class="next-btn" aria-label="Next slide">&#10095;</button>
+</div>
+
 </body>
 </html>
