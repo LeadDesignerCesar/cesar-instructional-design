@@ -296,18 +296,7 @@
   cursor: pointer;
   z-index: 2001;
 }
-.portfolio-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin-right: auto;
-}
 
-@media (max-width: 1024px) {
-  .portfolio-wrapper {
-    width: 100%;
-  }
-}
   </style>
   <script>
     function toggleAboutMe() {
@@ -335,9 +324,9 @@
   <main>
 <!-- Fixed Thumbnail Sidebar on the Right -->
 <div class="thumbnail-sidebar">
-  <img src="yourimage1.jpg" class="thumbnail" alt="Storyboard Flow" title="Storyboard Flow">
-  <img src="yourimage2.jpg" class="thumbnail" alt="Flip Card Front" title="Flip Card Front">
-  <img src="yourimage3.jpg" class="thumbnail" alt="Flip Card Back" title="Flip Card Back">
+  <img src="yourimage1.jpg" class="thumbnail" alt="Sample Graphic 1">
+  <img src="yourimage2.jpg" class="thumbnail" alt="Sample Graphic 2">
+  <img src="yourimage3.jpg" class="thumbnail" alt="Sample Graphic 3">
 </div>
 
 
@@ -363,57 +352,51 @@
       <button class="btn toggle-button" onclick="toggleAboutMe()">Collapse About Me</button>
     </section>
 
-    <section id="portfolio" style="margin: 3rem 0;">
-      <h2 style="margin: 2rem 0;">Portfolio</h2>
+   <section id="portfolio" style="margin: 3rem 0;">
+  <h2 style="margin: 2rem 0;">Portfolio</h2>
 
 <div id="lightbox" class="lightbox hidden">
   <span class="close-btn">&times;</span>
   <img id="lightbox-img" src="" alt="Expanded Graphic">
 </div>
-     <div class="portfolio-wrapper">
+
+<div class="portfolio-wrapper">
+
   <div class="project-card" id="canva">
-    <h3>Heat Quest – Course Trailer</h3>
-    <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
-    <div style="padding:45% 0 0 0;position:relative;">
-      <iframe src="https://player.vimeo.com/video/1070174523?h=0fc5c9efef&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Instructional Design"></iframe>
-    </div>
-    <script src="https://player.vimeo.com/api/player.js"></script>
-  </div>
+        <h3>Heat Quest – Course Trailer</h3>
+        <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
+        <div style="padding:45% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1070174523?h=0fc5c9efef&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Instructional Design"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      </div>
 
-  <div class="project-card" id="storyline">
-    <h3>Storyline Courses</h3>
-    <p>Courses built in Articulate Storyline for scenario-based learning and interactivity.</p>
-    <a href="https://warehousetraining.netlify.app/" target="_blank">
-      <img src="warehousethumbnail.png" alt="Warehouse Course Thumbnail" style="border-radius: 15px;">
-    </a>
-  </div>
+      <div class="project-card" id="storyline">
+        <h3>Storyline Courses</h3>
+        <p>Courses built in Articulate Storyline for scenario-based learning and interactivity.</p>
+        <a href="https://warehousetraining.netlify.app/" target="_blank">
+          <img src="warehousethumbnail.png" alt="Warehouse Course Thumbnail" style="border-radius: 15px;">
+        </a>
+      </div>
 
-  <div class="project-card">
-    <h3>Meet Cesar – Animated Introduction</h3>
-    <p>This short Powtoons video is a quick, fun introduction to who I am and what I do. It’s a great first step into my world of instructional design.</p>
-    <div style="padding:45% 0 0 0;position:relative;">
-      <iframe src="https://player.vimeo.com/video/1070174538?h=3b2f5396b8&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="PT1"></iframe>
-    </div>
-    <script src="https://player.vimeo.com/api/player.js"></script>
-  </div>
+      <div class="project-card">
+        <h3>Meet Cesar – Animated Introduction</h3>
+        <p>This short Powtoons video is a quick, fun introduction to who I am and what I do. It’s a great first step into my world of instructional design.</p>
+        <div style="padding:45% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1070174538?h=3b2f5396b8&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="PT1"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+      </div>
 
-  <div class="project-card" id="rise">
-    <h3>Rise Modules</h3>
-    <p>Responsive eLearning experiences built in Articulate Rise, ideal for mobile learning and structured content delivery.</p>
-    <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=20af1723-9cee-457b-993e-1c18e3886d66" target="_blank">
-      <img src="ImpairedDriving.png" alt="Privacy Course Thumbnail" style="border-radius: 0;">
-    </a>
-  </div>
+      <div class="project-card" id="rise">
+        <h3>Rise Modules</h3>
+        <p>Responsive eLearning experiences built in Articulate Rise, ideal for mobile learning and structured content delivery.</p>
+           <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=20af1723-9cee-457b-993e-1c18e3886d66" target="_blank">
+          <img src="ImpairedDriving.png" alt="Privacy Course Thumbnail" style="border-radius: 0;">
+        </a>
+      </div>
 
-  <div class="project-card" id="easygen">
-    <h3>EasyGen Courses</h3>
-    <p>Training designed in EasyGen, focused on protecting personal data, complying with privacy laws, and preventing data breaches.</p>
-    <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=20af1723-9cee-457b-993e-1c18e3886d66" target="_blank">
-      <img src="Privacy.gif" alt="Privacy Course Thumbnail" style="border-radius: 0;">
-    </a>
-  </div>
-</div>
-
+      <div class="project-card" id="easygen">
+        <h3>EasyGen Courses</h3>
+        <p>Training designed in EasyGen, focused on protecting personal data, complying with privacy laws, and preventing data breaches.</p>
+        <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=20af1723-9cee-457b-993e-1c18e3886d66" target="_blank">
+          <img src="Privacy.gif" alt="Privacy Course Thumbnail" style="border-radius: 0;">
+        </a>
+      </div><!-- close .portfolio-wrapper -->
     </section>
 
     <section id="contact">
