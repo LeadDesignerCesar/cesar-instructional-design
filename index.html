@@ -16,19 +16,30 @@
     }
     
 .thumbnail-sidebar {
-  position: fixed;
-  top: 100px;
-  right: 20px;
-  margin-left: 1rem;
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two thumbnails per row */
   gap: 0.75rem;
-  z-index: 500;
+  width: 200px;
+  padding: 1rem 0 0 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .thumbnail-sidebar {
-    display: none; /* Hide on small screens */
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .thumbnail-sidebar img {
+    max-width: 45%;
+    height: auto;
   }
 }
     * {
@@ -362,11 +373,23 @@
 
 <div class="portfolio-wrapper">
 
-  <div class="project-card" id="canva">
-        <h3>Heat Quest – Course Trailer</h3>
-        <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
-        <div style="padding:45% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1070174523?h=0fc5c9efef&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Instructional Design"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-      </div>
+  <div class="project-with-thumbnails" style="display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap;">
+  <div class="project-card" id="canva" style="flex: 1 1 600px;">
+    <h3>Heat Quest – Course Trailer</h3>
+    <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
+    <div style="padding:45% 0 0 0;position:relative;">
+      <iframe src="https://player.vimeo.com/video/1070174523?h=0fc5c9efef&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Instructional Design"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  </div>
+  
+  <div class="thumbnail-sidebar">
+    <img src="yourimage1.jpg" class="thumbnail" alt="Sample Graphic 1">
+    <img src="yourimage2.jpg" class="thumbnail" alt="Sample Graphic 2">
+    <img src="yourimage3.jpg" class="thumbnail" alt="Sample Graphic 3">
+    <img src="yourimage4.jpg" class="thumbnail" alt="Sample Graphic 4">
+  </div>
+</div>
 
       <div class="project-card" id="storyline">
         <h3>Storyline Courses</h3>
