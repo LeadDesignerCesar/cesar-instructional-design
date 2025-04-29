@@ -17,12 +17,21 @@
     
 .thumbnail-sidebar {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: nowrap;
-  margin-top: 1rem;
+  flex-direction: row;
   overflow-x: auto;
-  padding: 0 1rem;
+  gap: 1rem;
+  padding: 1rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) transparent;
+}
+
+.thumbnail-sidebar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.thumbnail-sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 4px;
 }
 
 @media (max-width: 1024px) {
@@ -36,8 +45,7 @@
     max-width: 45%;
     height: auto;
   }
-  }
-  
+} 
     * {
       margin: 0;
       padding: 0;
