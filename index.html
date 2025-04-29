@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cesar Ramos | Instructional Design Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    :root {
+      --primary-color: #25241d;
+      --accent-color: #c89d63;
+      --background-color: #ded0ad;
+      --glass-color: rgba(255, 255, 255, 0.1);
+      --text-color: #1a1a1a;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+.thumbnail-sidebar {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 500;
+}
+
+@media (max-width: 768px) {
+  .thumbnail-sidebar {
+    display: none; /* Hide on small screens */
+  }
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--background-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      background-color: var(--primary-color);
+      color: white;
+      width: 60px;
+      position: fixed;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      padding-top: 4rem;
+      transition: width 0.3s ease-in-out;
+      z-index: 1000;
+      overflow-x: hidden;
+    }
+
+    .sidebar:hover {
+      width: 250px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 1rem 1rem;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .sidebar ul li i {
+      margin-right: 1rem;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .sidebar:hover ul li a {
+      opacity: 1;
+    }
+
+    .submenu {
+      margin-left: 2rem;
+      display: none;
+    }
+
+    .sidebar:hover .submenu {
+      display: block;
+    }
+
+    main {
+      margin-left: 60px;
+      padding: 2rem;
+      flex-grow: 1;
+      transition: margin-left 0.3s ease-in-out;
+    }
+
+    .sidebar:hover ~ main {
+      margin-left: 250px;
+    }
+
+    .hero {
+      background: var(--glass-color);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border: 3px solid var(--accent-color);
+    }
+
+    .hero img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .about-blurb {
+      background: var(--glass-color);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 15px;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-blurb p + p {
+      margin-top: 1.2rem;
+    }
+
+    .project-card {
+      background: var(--glass-color);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 15px;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      margin-top: 1rem;
+      max-width: 75%;
+    }
+
+    .project-card img {
+      max-width: 75%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 15px;
+      margin-left: 0;
+    }
+
+    h1, h2, h3 {
+      color: var(--text-color);
+    }
+
+    .btn {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .btn-small {
+      font-size: 0.85rem;
+    }
+
+    .btn-smaller {
+      font-size: 0.8rem;
+    }
+
+    .toggle-button {
+      margin: 0 auto 1rem auto;
+      display: block;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      color: var(--text-color);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero img {
+        margin-bottom: 1rem;
+      }
+
+      .sidebar {
+        width: 60px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 4rem;
+      }
+
+      .sidebar:hover {
+        width: 250px;
+      }
+
+      main {
+        margin-left: 60px;
+      }
+
+      .sidebar:hover ~ main {
+        margin-left: 250px;
+      }
+
+      iframe,
+      .project-card img {
+        max-width: 100%;
+      }
+    }
+.thumbnail {
+  max-width: 150px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid var(--accent-color);
+  transition: transform 0.2s ease;
+}
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+}
+.lightbox.hidden {
+  display: none;
+}
+.close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 2001;
+}
+.portfolio-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  .portfolio-wrapper {
+    width: 100%;
+  }
+}
+  </style>
+  <script>
+    function toggleAboutMe() {
+      const blurb = document.getElementById('about-blurb');
+      blurb.classList.toggle('hidden');
+    }
+  </script>
+</head>
+<body>
+  <nav class="sidebar">
+    <ul>
+      <li><i class="fas fa-user"></i><a href="#about">About</a></li>
+      <li><i class="fas fa-briefcase"></i><a href="#portfolio">Portfolio</a></li>
+        <div class="submenu">
+          <li><a href="#canva">Canva</a></li>
+          <li><a href="#storyline">Storyline</a></li>
+          <li><a href="#rise">Rise</a></li>
+          <li><a href="#easygen">EasyGen</a></li>
+        </div>
+      <li><i class="fas fa-envelope"></i><a href="#contact">Contact</a></li>
+      <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/cesarthedesigner/" target="_blank">LinkedIn</a></li>
+    </ul>
+  </nav>
+
+  <main>
+<!-- Fixed Thumbnail Sidebar on the Right -->
+<div class="thumbnail-sidebar">
+  <img src="yourimage1.jpg" class="thumbnail" alt="Sample Graphic 1">
+  <img src="yourimage2.jpg" class="thumbnail" alt="Sample Graphic 2">
+  <img src="yourimage3.jpg" class="thumbnail" alt="Sample Graphic 3">
+</div>
+
+
+    <section class="hero" id="about">
+      <img src="https://drive.google.com/thumbnail?id=18J02sUx7YOHDf5OJX1c9n1mvPjtkLwxr" alt="Cesar Ramos headshot">
+      <div>
+        <h1>Cesar Ramos</h1>
+        <p>Instructional Designer | eLearning Developer | Learning Strategist</p>
+        <br />
+        <a class="btn btn-smaller" href="https://drive.google.com/file/d/1zVczarmC-qDnPImqrq3lozEiaY2OAzmN/view?usp=share_link" target="_blank">View My Resume</a>
+      </div>
+    </section>
+
+    <h2 style="margin: 2rem 0;">About Me</h2>
+    <button class="btn toggle-button" onclick="toggleAboutMe()">Display About Me</button>
+    <section class="about-blurb hidden" id="about-blurb">
+      <p>I currently lead curriculum development at Deployed Services, managing and mentoring a talented team of designers. In this role, I oversee the creation of impactful, scalable learning experiences for a diverse audience.</p>
+      <p>My instructional design journey began at Carley Corporation, where I worked on high-stakes government contracts. That early exposure taught me the discipline and attention to detail required to build content that performs under pressure.</p>
+      <p>Before entering the corporate space, I spent eight years in the classroom. In 2020, I began mentoring veteran teachers through the sudden shift to hybrid learning. Supporting others during that pivotal moment sparked a realization—I wanted to design learning experiences full time.</p>
+      <p>I earned my Master’s in Instructional Design & Technology from the American College of Education, graduating as a distinguished student.</p>
+      <p>Since then, I’ve continued to build expertise through certifications in Articulate Storyline and Rise, onboarding design, and AI-assisted content creation. I also hold Lean Six Sigma White Belt and Six Sigma White Belt certifications.</p>
+      <br />
+      <button class="btn toggle-button" onclick="toggleAboutMe()">Collapse About Me</button>
+    </section>
+
+    <section id="portfolio" style="margin: 3rem 0;">
+      <h2 style="margin: 2rem 0;">Portfolio</h2>
+
+<div id="lightbox" class="lightbox hidden">
+  <span class="close-btn">&times;</span>
+  <img id="lightbox-img" src="" alt="Expanded Graphic">
+</div>
+     <div class="portfolio-wrapper">
+  <div class="project-card" id="canva">
+    <h3>Heat Quest – Course Trailer</h3>
+    <p>This cinematic trailer introduces Heat Quest, an immersive and interactive eLearning course I designed to teach critical thinking through branching decision-making.</p>
+    <div style="padding:45% 0 0 0;position:relative;">
+      <iframe src="https://player.vimeo.com/video/1070174523?h=0fc5c9efef&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Instructional Design"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  </div>
+
+  <div class="project-card" id="storyline">
+    <h3>Storyline Courses</h3>
+    <p>Courses built in Articulate Storyline for scenario-based learning and interactivity.</p>
+    <a href="https://warehousetraining.netlify.app/" target="_blank">
+      <img src="warehousethumbnail.png" alt="Warehouse Course Thumbnail" style="border-radius: 15px;">
+    </a>
+  </div>
+
+  <div class="project-card">
+    <h3>Meet Cesar – Animated Introduction</h3>
+    <p>This short Powtoons video is a quick, fun introduction to who I am and what I do. It’s a great first step into my world of instructional design.</p>
+    <div style="padding:45% 0 0 0;position:relative;">
+      <iframe src="https://player.vimeo.com/video/1070174538?h=3b2f5396b8&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="PT1"></iframe>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+  </div>
+
+  <div class="project-card" id="rise">
+    <h3>Rise Modules</h3>
+    <p>Responsive eLearning experiences built in Articulate Rise, ideal for mobile learning and structured content delivery.</p>
+    <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=20af1723-9cee-457b-993e-1c18e3886d66" target="_blank">
+      <img src="ImpairedDriving.png" alt="Privacy Course Thumbnail" style="border-radius: 0;">
+    </a>
+  </div>
+
+  <div class="project-card" id="easygen">
+    <h3>EasyGen Courses</h3>
+    <p>Training designed in EasyGen, focused on protecting personal data, complying with privacy laws, and preventing data breaches.</p>
+    <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=20af1723-9cee-457b-993e-1c18e3886d66" target="_blank">
+      <img src="Privacy.gif" alt="Privacy Course Thumbnail" style="border-radius: 0;">
+    </a>
+  </div>
+</div>
+
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p style="margin-top: 1rem;">Want to work together?</p>
+      <p class="center" style="margin-top: 1rem;"><a class="btn btn-small" href="mailto:caramos0918@gmail.com">Email Me</a></p>
+    </section>
+
+    <footer>
+      <p>© 2025 Cesar Ramos. All rights reserved.</p>
+    </footer>
+
+<script>
+  document.querySelectorAll('.thumbnail').forEach(img => {
+    img.addEventListener('click', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.classList.remove('hidden');
+    });
+  });
+
+  document.querySelector('.close-btn').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.add('hidden');
+  });
+</script>
+
+
+</body>
+</html>
