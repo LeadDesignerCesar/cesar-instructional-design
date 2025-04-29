@@ -121,23 +121,7 @@
     .sidebar:hover .submenu {
       display: block;
     }
-    
-.media-wrapper {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-}
 
-.media-wrapper iframe,
-.media-wrapper img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  border-radius: 15px;
-  background-color: #000;
-}
  main {
   margin-left: 60px;
   padding: 2rem;
@@ -427,12 +411,16 @@
   <script src="https://player.vimeo.com/api/player.js"></script>
 </div>
 
-      <div class="project-card" id="rise">
+     <div class="project-card" id="rise">
   <h3>Rise Modules</h3>
   <p>Responsive eLearning experiences built in Articulate Rise, ideal for mobile learning and structured content delivery.</p>
-  <div class="media-wrapper">
-    <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=..." target="_blank">
-      <img src="ImpairedDriving.png" alt="Privacy Course Thumbnail">
+  <div style="padding: 45% 0 0 0; position: relative;">
+    <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=YOUR_RISE_ID" 
+       target="_blank" 
+       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+      <img src="ImpairedDriving.png" 
+           alt="Privacy Course Thumbnail" 
+           style="border-radius: 15px; width: 100%; height: 100%; object-fit: cover; background-color: #000;">
     </a>
   </div>
 </div>
@@ -440,12 +428,17 @@
 <div class="project-card" id="easygen">
   <h3>EasyGen Courses</h3>
   <p>Training designed in EasyGen, focused on protecting personal data, complying with privacy laws, and preventing data breaches.</p>
-  <div class="media-wrapper">
-    <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=..." target="_blank">
-      <img src="Privacy.gif" alt="Privacy Course Thumbnail">
+  <div style="padding: 45% 0 0 0; position: relative;">
+    <a href="https://app.cloud.scorm.com/sc/InvitationConfirmEmail?publicInvitationId=YOUR_EASYGEN_ID" 
+       target="_blank" 
+       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+      <img src="Privacy.gif" 
+           alt="Privacy Course Thumbnail" 
+           style="border-radius: 15px; width: 100%; height: 100%; object-fit: cover; background-color: #000;">
     </a>
   </div>
 </div>
+
 
     </section>
 
