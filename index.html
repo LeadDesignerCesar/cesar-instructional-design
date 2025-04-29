@@ -14,7 +14,22 @@
       --text-color: #1a1a1a;
       --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    
+.thumbnail-sidebar {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 500;
+}
 
+@media (max-width: 768px) {
+  .thumbnail-sidebar {
+    display: none; /* Hide on small screens */
+  }
+}
     * {
       margin: 0;
       padding: 0;
@@ -242,43 +257,6 @@
         max-width: 100%;
       }
     }
-
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-.carousel figure {
-  margin: 0;
-  flex-shrink: 0;
-  width: 100%;
-}
-.carousel img {
-  width: 100%;
-  display: block;
-  border-radius: 15px;
-}
-.carousel figcaption {
-  text-align: center;
-  padding: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--text-color);
-}
-.prev-btn, .next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 0.8rem;
-  cursor: pointer;
-  font-size: 1.5rem;
-  z-index: 10;
-  border-radius: 50%;
-}
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; }
-
 .thumbnail {
   max-width: 150px;
   cursor: pointer;
@@ -343,6 +321,14 @@
   </nav>
 
   <main>
+<!-- Fixed Thumbnail Sidebar on the Right -->
+<div class="thumbnail-sidebar">
+  <img src="yourimage1.jpg" class="thumbnail" alt="Sample Graphic 1">
+  <img src="yourimage2.jpg" class="thumbnail" alt="Sample Graphic 2">
+  <img src="yourimage3.jpg" class="thumbnail" alt="Sample Graphic 3">
+</div>
+
+
     <section class="hero" id="about">
       <img src="https://drive.google.com/thumbnail?id=18J02sUx7YOHDf5OJX1c9n1mvPjtkLwxr" alt="Cesar Ramos headshot">
       <div>
@@ -367,19 +353,6 @@
 
     <section id="portfolio" style="margin: 3rem 0;">
       <h2 style="margin: 2rem 0;">Portfolio</h2>
-     
-  
-  <div class="project-card" style="display: flex; gap: 2rem; align-items: flex-start;">
-  <div style="flex: 1;">
-    <h3>Sample Training Visuals</h3>
-    <p>Click a graphic to expand it fullscreen and explore the process behind our learning design.</p>
-  </div>
-  <div style="display: flex; flex-direction: column; gap: 1rem;">
-    <img src="yourimage1.jpg" class="thumbnail" alt="Sample Graphic 1">
-    <img src="yourimage2.jpg" class="thumbnail" alt="Sample Graphic 2">
-    <img src="yourimage3.jpg" class="thumbnail" alt="Sample Graphic 3">
-  </div>
-</div>
 
 <div id="lightbox" class="lightbox hidden">
   <span class="close-btn">&times;</span>
