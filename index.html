@@ -242,20 +242,7 @@
         max-width: 100%;
       }
     }
-    /* Carousel Styles */
-.carousel-container {
-  position: relative;
-  width: 75%;
-  margin: 2rem auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  border: 3px solid var(--accent-color);
-  background: var(--glass-color);
-  backdrop-filter: blur(8px);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-}
+
 .carousel {
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -291,6 +278,45 @@
 }
 .prev-btn { left: 10px; }
 .next-btn { right: 10px; }
+
+.thumbnail {
+  max-width: 150px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid var(--accent-color);
+  transition: transform 0.2s ease;
+}
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+}
+.lightbox.hidden {
+  display: none;
+}
+.close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 2001;
+}
 
   </style>
   <script>
@@ -343,27 +369,21 @@
       <h2 style="margin: 2rem 0;">Portfolio</h2>
      
   
-  <div class="carousel-container">
-    <div class="carousel">
-    <figure>
-      <img src="yourimage1.jpg" loading="lazy" alt="Six-step training course development process in a waterfall layout, from intake to final SME review.">
-      <figcaption>This visual represents a waterfall-style training course development process, where each step flows into the next in a set order. It starts with an intake meeting and ends with final SME review, moving through planning, design, and course creation along the way. This structured approach ensures clarity, consistent communication, and subject matter accuracy at every phase, with key review points built in to catch issues before moving forward.</figcaption>
-    </figure>
-    <figure>
-      <img src="yourimage2.jpg" loading="lazy" alt="Alt text 2">
-      <figcaption>Description 2</figcaption>
-    </figure>
-    <figure>
-      <img src="yourimage3.jpg" loading="lazy" alt="Alt text 3">
-      <figcaption>Description 3</figcaption>
-    </figure>
-<figure>
-      <img src="yourimage4.jpg" loading="lazy" alt="Alt text 3">
-      <figcaption>Description 3</figcaption>
-    </figure>
+  <div class="project-card" style="display: flex; gap: 2rem; align-items: flex-start;">
+  <div style="flex: 1;">
+    <h3>Sample Training Visuals</h3>
+    <p>Click a graphic to expand it fullscreen and explore the process behind our learning design.</p>
   </div>
-  <button class="prev-btn" aria-label="Previous slide">&#10094;</button>
-  <button class="next-btn" aria-label="Next slide">&#10095;</button>
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <img src="yourimage1.jpg" class="thumbnail" alt="Sample Graphic 1">
+    <img src="yourimage2.jpg" class="thumbnail" alt="Sample Graphic 2">
+    <img src="yourimage3.jpg" class="thumbnail" alt="Sample Graphic 3">
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox hidden">
+  <span class="close-btn">&times;</span>
+  <img id="lightbox-img" src="" alt="Expanded Graphic">
 </div>
       <div class="project-card" id="canva">
         <h3>Heat Quest – Course Trailer</h3>
@@ -408,34 +428,22 @@
     <footer>
       <p>© 2025 Cesar Ramos. All rights reserved.</p>
     </footer>
-  
+
 <script>
-  const carousel = document.querySelector('.carousel');
-  const nextBtn = document.querySelector('.next-btn');
-  const prevBtn = document.querySelector('.prev-btn');
-  let currentIndex = 0;
-
-  const updateCarousel = () => {
-    const slideWidth = carousel.querySelector('figure').offsetWidth;
-    carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-  };
-
-  nextBtn.addEventListener('click', () => {
-    if (currentIndex < carousel.children.length - 1) {
-      currentIndex++;
-      updateCarousel();
-    }
+  document.querySelectorAll('.thumbnail').forEach(img => {
+    img.addEventListener('click', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.classList.remove('hidden');
+    });
   });
 
-  prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    }
+  document.querySelector('.close-btn').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.add('hidden');
   });
-
-  window.addEventListener('resize', updateCarousel);
 </script>
+
 
 </body>
 </html>
